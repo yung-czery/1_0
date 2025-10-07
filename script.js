@@ -44,10 +44,17 @@
     event.preventDefault();
   });
 
+  containerOne.addEventListener('drop', (event) => {
+    event.preventDefault();
+    const data = event.dataTransfer.getData('text/plain');
+    const draggedElement = document.getElementById(data);
+    containerOne.appendChild(draggedElement);
+  });
+
   containerTwo.addEventListener('drop', (event) => {
     event.preventDefault();
     const data = event.dataTransfer.getData('text/plain');
     const draggedElement = document.getElementById(data);
     containerTwo.appendChild(draggedElement);
-  })
+  });
 })();
