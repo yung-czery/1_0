@@ -6,7 +6,7 @@
   const numbers = Array.from({ length: 10 }, (_, i) => i);
 
   button.addEventListener('click', () => {
-    content.innerHTML = numbers;
+    content1.textContent = numbers;
   })
 
   // 1_1.2
@@ -15,14 +15,17 @@
 
   text.addEventListener('input', () => {
     const value = text.value;
-    if (/[^0-9]/.test(value)) {
-      content2.innerHTML = 'Numer nie może zawierać znaków specjalnych';
-    } else if (/[a-zA-Z]/.test(value)) {
-      content2.innerHTML = 'Numer nie może zawierać liter';
+    
+    if (/[a-zA-Z]/.test(value)) {
+      content2.textContent = 'Numer nie może zawierać liter';
+    } else if (/[^0-9]/.test(value)) {
+      content2.textContent = 'Numer nie może zawierać znaków specjalnych';
     } else if (value.length !== 9) {
-        content2.innerHTML = 'Długość numeru musi być równa 9';
+        content2.textContent = 'Długość numeru musi być równa 9';
     }  else if (value.length === 9) {
-      content2.innerHTML = 'Numer telefonu jest poprawny';
+      content2.textContent = 'Numer telefonu jest poprawny';
     }
   })
+
+  // 1_1.3
 })();
