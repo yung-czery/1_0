@@ -27,5 +27,27 @@
     }
   })
 
-  // 1_1.3
+  // 1_2.1
+  const dragElement = document.getElementById('ex3_element');
+  const containerOne = document.getElementById('ex3_one');
+  const containerTwo = document.getElementById('ex3_two');
+
+  dragElement.addEventListener('dragstart', (event) => {
+    event.dataTransfer.setData('text/plain', event.target.id);
+  });
+
+  containerOne.addEventListener('dragover', (event) => {
+    event.preventDefault();
+  });
+
+  containerTwo.addEventListener('dragover', (event) => {
+    event.preventDefault();
+  });
+
+  containerTwo.addEventListener('drop', (event) => {
+    event.preventDefault();
+    const data = event.dataTransfer.getData('text/plain');
+    const draggedElement = document.getElementById(data);
+    containerTwo.appendChild(draggedElement);
+  })
 })();
